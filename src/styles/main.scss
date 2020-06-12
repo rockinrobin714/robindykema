@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,200;0,400;0,600;1,400&display=swap");
+
+$yellow: #fdc72f;
+$white: #fdfdfd;
+$gray: #333;
+$yellow-light: #fffadf;
+
+$header-font: "Shadows Into Light Two", cursive;
+$body-font: "Barlow Semi Condensed", sans-serif;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $body-font;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $header-font;
+}
+
+.main-layout {
+  padding: 30px;
+  background-color: $yellow-light;
+  color: $gray;
+
+  > * + * {
+    margin-top: 50px;
+  }
+}
+
+nav {
+  position: fixed;
+  background-color: $yellow-light;
+  width: 100%;
+  display: flex;
+  height: 120px;
+  z-index: 100;
+  font-size: 20px;
+  text-align: center;
+
+  ul {
+    width: calc(100% - 60px);
+    height: 60px;
+    background-color: $gray;
+    display: flex;
+    margin: 30px auto 0;
+  }
+
+  h4 {
+    margin: 0 40px;
+  }
+
+  li {
+    color: $white;
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    a {
+      padding: 0 40px;
+      height: 100%;
+      width: 100%;
+      align-items: center;
+      display: flex;
+      color: $white;
+
+      &:hover {
+        background-color: $yellow;
+        color: $gray;
+      }
+    }
+  }
+}
