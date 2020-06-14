@@ -32,10 +32,27 @@ h5 {
   font-family: $header-font;
 }
 
+button {
+  border-radius: 0;
+  height: 60px;
+  background-color: $yellow;
+  padding: 0 20px;
+  color: $gray;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+
+  &:hover {
+    background-color: $gray;
+    color: $white;
+  }
+}
+
 .main-layout {
   padding: 30px;
   background-color: $yellow-light;
   color: $gray;
+  font-size: 18px;
 
   > * + * {
     margin-top: 50px;
@@ -83,5 +100,28 @@ nav {
         color: $gray;
       }
     }
+  }
+}
+
+.half-row > * {
+  display: inline-block;
+  width: calc(50% - 15px);
+
+  + * {
+    margin-left: 30px;
+  }
+}
+
+.text-box {
+  background-color: $white;
+  padding: 30px;
+  vertical-align: top;
+
+  button {
+    display: block;
+  }
+
+  > * + * {
+    margin-top: 20px;
   }
 }

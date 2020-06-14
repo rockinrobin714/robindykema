@@ -16,10 +16,10 @@ const Navbar = () => {
           <AnchorLink to="/#about-me">About Me</AnchorLink>
         </li>
         <li>
-          <AnchorLink to="/#hero">Talks</AnchorLink>
+          <AnchorLink to="/#talks">Talks</AnchorLink>
         </li>
         <li>
-          <AnchorLink to="/#hero">Contact</AnchorLink>
+          <AnchorLink to="/#contact">Contact</AnchorLink>
         </li>
       </ul>
     </nav>

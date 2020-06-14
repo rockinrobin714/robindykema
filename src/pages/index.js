@@ -6,43 +6,22 @@ import SEO from "../components/seo";
 import Hero from "../components/hero";
 import Navbar from "../components/navbar";
 import AboutMe from "../components/about-me";
+import Contact from "../components/contact";
+import Talks from "../components/talks";
 import "../styles/main.scss";
 
 const IndexPage = () => (
   <>
     <Navbar />
     <SEO title="Home" />
-
     <div className="main-layout">
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <div style={{ maxWidth: `800px`, marginBottom: `1.45rem` }}>
-        {/* <Image /> */}
-      </div>
-      <p>
-        Welcome to your new Gatsby site.Welcome to your new Gatsby site.Welcome
-        to your new Gatsby site.WelWelcome to your new Gatsby site.Welcome to
-        your new Gatsby site.Welcome to your new Gatsby site.Welcome to your new
-        Gatsby site.Welcome to your new Gatsby site.Welcome to your new Gatsby
-        site.Welcome to your new Gatsby site.Welcome to your new Gatsby
-        site.Welcome to your new Gatsby site.Welcome to your new Gatsby
-        site.Welcome to your new Gatsby site.Welcome to your new Gatsby
-        site.Welcome to your new Gatsby site.Welcome to your new Gatsby
-        site.Welcome to your new Gatsby site.come to your new Gatsby
-        site.Welcome to your new Gatsby site.Welcome to your new Gatsby
-        site.Welcome to your new Gatsby site.Welcome to your new Gatsby
-        site.Welcome to your new Gatsby site.Welcome to your new Gatsby
-        site.Welcome to your new Gatsby site.Welcome to your new Gatsby
-        site.Welcome to your new Gatsby site.Welcome to your new Gatsby
-        site.Welcome to your new Gatsby site.Welcome to your new Gatsby
-        site.Welcome to your new Gatsby site.Welcome to your new Gatsby site.
-      </p>
+      {/* <div style={{ maxWidth: `800px`, marginBottom: `1.45rem` }}>
+        <Image />
+      </div> */}
       <Hero />
       <AboutMe />
-      <p>Now go build something great.</p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+      <Talks />
+      <Contact />
       <footer>
         © {new Date().getFullYear()}, Built by Robin Dykema with
         {` `}
