@@ -4,6 +4,8 @@
 $yellow: #fdc72f;
 $white: #fdfdfd;
 $gray: #333;
+$light: #bababa;
+$dark: #262626;
 $yellow-light: #fffadf;
 
 $header-font: "Shadows Into Light Two", cursive;
@@ -41,6 +43,7 @@ button {
   border: none;
   cursor: pointer;
   font-size: 18px;
+  margin-top: 20px;
 
   &:hover {
     background-color: $gray;
@@ -103,12 +106,16 @@ nav {
   }
 }
 
-.half-row > * {
-  display: inline-block;
-  width: calc(50% - 15px);
+.half-row {
+  display: flex;
 
-  + * {
-    margin-left: 30px;
+  > * {
+    display: inline-block;
+    width: calc(50% - 15px);
+
+    + * {
+      margin-left: 30px;
+    }
   }
 }
 
@@ -116,12 +123,28 @@ nav {
   background-color: $white;
   padding: 30px;
   vertical-align: top;
+}
 
-  button {
-    display: block;
+.all-talks {
+  display: flex;
+
+  > * {
+    display: inline-block;
+    width: calc(50% - 15px);
+
+    + * {
+      margin-left: 30px;
+    }
   }
+}
+.talk {
+  padding: 30px;
+  background-color: $dark;
+  color: $light;
 
-  > * + * {
-    margin-top: 20px;
+  .title {
+    color: $yellow;
+    font-size: 18px;
+    margin-bottom: 20px;
   }
 }

@@ -16,7 +16,7 @@ const Hero = () => {
   `);
   return (
     <section id="hero">
-      <Img fluid={data.placeholderImage.childImageSharp.fluid} />;
+      <Img fluid={data.placeholderImage.childImageSharp.fluid} />
     </section>
   );
 };

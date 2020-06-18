@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby";
 const AboutMe = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "sand.png" }) {
+      placeholderImage: file(relativePath: { eq: "beach.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
@@ -16,9 +16,28 @@ const AboutMe = () => {
   `);
   return (
     <section id="contact" className="half-row">
-      <div>
+      <div className="text-box">
         <form>
-          <input />
+          <label>
+            Name
+            <input />
+          </label>
+          <label>
+            Company
+            <input />
+          </label>
+          <label>
+            Number
+            <input />
+          </label>
+          <label>
+            Email
+            <input />
+          </label>
+          <label>
+            Message
+            <textarea />
+          </label>
         </form>
       </div>
       <div>
