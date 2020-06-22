@@ -148,3 +148,16 @@ nav {
     margin-bottom: 20px;
   }
 }
+
+form {
+  input,
+  textarea {
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    padding: 0.25rem;
+    width: 100%;
+    display: block;
+  }
+}
