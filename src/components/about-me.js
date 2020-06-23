@@ -17,7 +17,7 @@ const AboutMe = () => {
   return (
     <section id="about-me" className="half-row">
       <div>
-        <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+        {/* <Img fluid={data.placeholderImage.childImageSharp.fluid} /> */}
       </div>
       <div className="text-box">
         <p>

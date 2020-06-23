@@ -125,7 +125,7 @@ nav {
   vertical-align: top;
 }
 
-.all-talks {
+.talk {
   display: flex;
 
   > * {
@@ -136,16 +136,28 @@ nav {
       margin-left: 30px;
     }
   }
+
+  + .talk {
+    margin-top: 20px;
+  }
 }
-.talk {
+
+.talk-text {
   padding: 30px;
   background-color: $dark;
   color: $light;
 
   .title {
     color: $yellow;
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-size: 32px;
+  }
+
+  .conference {
+    color: $yellow;
+  }
+
+  * + * {
+    margin-top: 20px;
   }
 }
 

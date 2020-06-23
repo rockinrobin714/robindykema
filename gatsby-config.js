@@ -21,6 +21,17 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
+      options: {
+        name: `talks`,
+        path: `talks`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        gatsbyRemarkPlugins: [{ resolve: "gatsby-remark-images" }],
+        plugins: [{ resolve: "gatsby-remark-images" }],
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

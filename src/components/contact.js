@@ -108,7 +108,7 @@ const AboutMe = () => {
         </form>
       </div>
       <div>
-        <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+        {/* <Img fluid={data.placeholderImage.childImageSharp.fluid} /> */}
       </div>
     </section>
   );

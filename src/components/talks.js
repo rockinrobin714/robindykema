@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import useTalks from "../hooks/use-talks";
 import Talk from "./talk";
 
 const Talks = () => {
   const [showAll, setShowAll] = useState(false);
+  const talks = useTalks().slice(0, showAll ? undefined : 3);
   return (
     <section id="talks">
-      <Talk title="test" location="yo" description="yep" thumbnail="sand.png" />
+      {talks.map(talk => (
+        <Talk talk={talk} key={talk.location} />
+      ))}
       {!showAll && <button onClick={() => setShowAll(true)}>See all</button>}
     </section>
   );

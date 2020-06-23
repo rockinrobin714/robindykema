@@ -1,28 +1,26 @@
 import React from "react";
-import Img from "gatsby-image";
-import { useStaticQuery, graphql } from "gatsby";
+import Image from "gatsby-image";
 
-const Talk = ({ title, description, location, thumbnail }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "sand.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
+const Talk = ({ talk }) => {
   return (
-    <section className="all-talks">
-      <div className="talk">
-        <h3 className="title">{title}</h3>
-        <p>{location}</p>
-        <p>{description}</p>
+    <section className="talk">
+      <div className="talk-text">
+        <h3 className="title">{talk.title}</h3>
+        <p>
+          <span className="conference">{talk.conference}</span> -{" "}
+          {talk.location} ({talk.date})
+        </p>
+        <p>{talk.description}</p>
+        <p>
+          Check out the slides{" "}
+          <a href={talk.slides} rel="noopener" target="_blank">
+            here {talk.slides}
+          </a>
+        </p>
+        {talk.url && <p className="watch-video">{talk.url}</p>}
       </div>
-      <div>
-        <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+      <div className="talk-image">
+        <Image fluid={talk.image.sharp.fluid} alt={talk.title} />
       </div>
     </section>
   );
