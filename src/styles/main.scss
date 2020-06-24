@@ -42,7 +42,7 @@ button {
   color: $gray;
   border: none;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 20px;
 
   &:hover {
@@ -51,11 +51,17 @@ button {
   }
 }
 
+a {
+  color: $gray;
+  text-decoration: underline;
+}
+
 .main-layout {
   padding: 30px;
   background-color: $yellow-light;
   color: $gray;
-  font-size: 18px;
+  font-size: 20px;
+  line-height: 1.5;
 
   > * + * {
     margin-top: 50px;
@@ -106,6 +112,20 @@ nav {
   }
 }
 
+.hero-bg {
+  background-position: top 20% center;
+  background-size: cover;
+  height: 80vh;
+  position: relative;
+}
+
+.robin {
+  position: absolute;
+  width: 30vw;
+  bottom: 0;
+  right: 0;
+}
+
 .half-row {
   display: flex;
 
@@ -135,6 +155,11 @@ nav {
     + * {
       margin-left: 30px;
     }
+  }
+
+  a {
+    text-decoration: underline;
+    color: $yellow;
   }
 
   + .talk {
