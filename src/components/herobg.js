@@ -8,7 +8,7 @@ const HeroBg = ({ children }) => {
       image: file(relativePath: { eq: "herobg.png" }) {
         sharp: childImageSharp {
           fluid(quality: 90, maxWidth: 2000) {
-            ...GatsbyImageSharpFluid_withWebp
+            ...GatsbyImageSharpFluid
           }
         }
       }

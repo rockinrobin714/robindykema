@@ -2,6 +2,7 @@ import React, { useReducer, useContext } from "react";
 import Img from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
 import { ResponsiveContext } from "../contexts/responsiveProvider";
+import Spinner from "./spinner";
 
 const INITIAL_STATE = {
   name: "",
@@ -60,6 +61,12 @@ const AboutMe = () => {
 
   return (
     <section id="contact" className="half-row">
+      {isMobile && (
+        <div>
+          <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+          <span className="image-text">Contact</span>
+        </div>
+      )}
       <div className="text-box">
         <form onSubmit={handleSubmit}>
           <label>
@@ -103,6 +110,8 @@ const AboutMe = () => {
       {!isMobile && (
         <div>
           <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+          <Spinner />
+          <span className="image-text">Contact</span>
         </div>
       )}
     </section>

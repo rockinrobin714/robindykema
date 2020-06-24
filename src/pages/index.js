@@ -21,7 +21,11 @@ const IndexPage = () => (
       <footer>
         © {new Date().getFullYear()}, Built by Robin Dykema with
         {` `}
-        <a href="https://www.gatsbyjs.org" target="_blank" rel="noopener">
+        <a
+          href="https://www.gatsbyjs.org"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           Gatsby
         </a>
       </footer>

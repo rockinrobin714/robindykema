@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import Img from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { ResponsiveContext } from "../contexts/responsiveProvider";
+import Spinner from "./spinner";
 
 const AboutMe = () => {
   const { isMobile } = useContext(ResponsiveContext);
@@ -9,7 +11,7 @@ const AboutMe = () => {
     query {
       placeholderImage: file(relativePath: { eq: "sand.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(quality: 90, maxWidth: 1000) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -18,11 +20,11 @@ const AboutMe = () => {
   `);
   return (
     <section id="about-me" className="half-row">
-      {!isMobile && (
-        <div>
-          <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-        </div>
-      )}
+      <div>
+        <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+        {!isMobile && <Spinner direction="left" />}
+        <span className="image-text">{isMobile ? "About" : "About Me"}</span>
+      </div>
       <div className="text-box">
         <p>
           Robin is a senior UI engineer at Taulia, where she focuses on front
@@ -31,7 +33,9 @@ const AboutMe = () => {
           transitioned from teaching ESL to kindergarteners in Shanghai to
           wrangling code and hasn't looked back since.
         </p>
-        <button>Let's work together</button>
+        <AnchorLink to="/#contact" className="button">
+          Let's work together
+        </AnchorLink>
       </div>
     </section>
   );

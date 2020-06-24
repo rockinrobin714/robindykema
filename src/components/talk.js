@@ -15,16 +15,16 @@ const Talk = ({ talk }) => {
         </p>
         <p>{talk.description}</p>
         <p>
-          <a href={talk.slides} rel="noopener" target="_blank">
+          <a href={talk.slides} rel="noreferrer noopener" target="_blank">
             Link to slides
           </a>
         </p>
-        {talk.url && <p className="watch-video">{talk.url}</p>}
+        {/* TODO! {talk.url && <p className="watch-video">{talk.url}</p>}  */}
       </div>
       {!isMobile && (
         <a
           href={talk.slides}
-          rel="noopener"
+          rel="noreferrer noopener"
           target="_blank"
           className="talk-image"
         >

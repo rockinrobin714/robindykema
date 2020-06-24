@@ -20,20 +20,28 @@ const Talks = () => {
             <a
               href="https://halfstackconf.com/charlotte/"
               target="_blank"
-              rel="noopener"
+              rel="noreferrer noopener"
             >
               Half Stack Charlotte
             </a>
           </li>
           <li>
             A Proxy-mately Everything You Need to Know About Proxies -{" "}
-            <a href="https://decoupleddays.com/" target="_blank" rel="noopener">
+            <a
+              href="https://decoupleddays.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               Decoupled Days
             </a>
           </li>
           <li>
             A Proxy-mately Everything You Need to Know About Proxies -{" "}
-            <a href="https://enterjs.de/" target="_blank" rel="noopener">
+            <a
+              href="https://enterjs.de/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               Enter JS (Germany)
             </a>
           </li>
@@ -46,14 +54,18 @@ const Talks = () => {
             <a
               href="http://react-not-a-conf.com/"
               target="_blank"
-              rel="noopener"
+              rel="noreferrer noopener"
             >
               React.NotAConf (Bulgaria)
             </a>
           </li>
           <li>
             Shining Light on the Shadow DOM -{" "}
-            <a href="https://cssconf.co/" target="_blank" rel="noopener">
+            <a
+              href="https://cssconf.co/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               CSS Conf Colombia
             </a>
           </li>
