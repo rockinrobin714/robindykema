@@ -228,7 +228,7 @@ form {
 
 @media only screen and (max-width: 900px) {
   nav {
-    left: -1000px;
+    top: -1000px;
     transition: 500ms ease;
 
     &.open {
@@ -236,18 +236,18 @@ form {
       display: flex;
 
       ul {
-        transform: translateX(1000px);
+        transform: translatey(1080px);
 
         li a {
           justify-content: center;
-          border: 2px solid $yellow;
+          border: 2px solid $yellow-light;
         }
       }
     }
 
     ul {
       flex-direction: column;
-      height: calc(100% + 40px);
+      height: calc(100% - 60px);
       margin: -20px;
       width: calc(100% + 40px);
     }
@@ -261,27 +261,21 @@ form {
     height: calc(100vh - 60px);
   }
 
-  .robin {
-    width: 45vw;
-  }
-
   .hero-text {
-    width: 80vw;
-    top: 5vh;
+    width: 70vw;
     text-align: center;
-    left: auto;
-    right: auto;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
 
     span.title {
-      font-size: 54px;
-      margin-bottom: 10px;
+      font-size: 12vw;
+      margin-bottom: 30px;
 
       + span {
         font-size: 36px;
+        font-size: 8vw;
       }
     }
   }
@@ -291,23 +285,35 @@ form {
   }
 }
 
+@media only screen and (max-width: 680px) {
+  .robin {
+    width: 40vw;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .robin {
+    width: 70vw;
+  }
+}
+
 /* Hamburger button */
 .hamburger-container {
   height: 60px;
   width: 100%;
   background-color: $yellow-light;
-  z-index: 10;
   position: fixed;
   display: flex;
   align-items: center;
-  padding-left: 20px;
-  z-index: 10;
+  justify-content: center;
+  z-index: 200;
 }
+
 button.hamburger-button {
-  top: 20px;
-  left: 20px;
+  left: 30px;
   width: 45px;
   height: 35px;
+  position: fixed;
   transform: rotate(0deg);
   transition: 0.5s ease-in-out;
   border: none;

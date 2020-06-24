@@ -38,7 +38,7 @@ const Talks = () => {
             </a>
           </li>
         </ul>
-        <h3>Postponed due to COVID:</h3>
+        <h3>Postponed due to COVID-19:</h3>
         <ul>
           <li>
             Sacré Bleu! The Trials and Tribulaciones of Internationalising Your

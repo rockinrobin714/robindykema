@@ -6,17 +6,15 @@ const HamburgerButton = ({ onClick, open }) => {
     onClick();
   };
   return (
-    <div className="button-container">
-      <button
-        className={`hamburger-button ${open && "open"}`}
-        onClick={handleClick}
-      >
-        <span />
-        <span />
-        <span />
-        <span />
-      </button>
-    </div>
+    <button
+      className={`hamburger-button ${open && "open"}`}
+      onClick={handleClick}
+    >
+      <span />
+      <span />
+      <span />
+      <span />
+    </button>
   );
 };
 

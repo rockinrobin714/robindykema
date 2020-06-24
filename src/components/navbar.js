@@ -15,6 +15,7 @@ const Navbar = () => {
             open={isMobileNavOpen}
             onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
           />
+          <h2>Robin Dykema</h2>
         </div>
       )}
       <nav className={isMobileNavOpen && "open"}>
