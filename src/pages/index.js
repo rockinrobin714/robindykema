@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import Image from "../components/image";
 import SEO from "../components/seo";
 import Hero from "../components/hero";
 import Navbar from "../components/navbar";
@@ -15,9 +14,6 @@ const IndexPage = () => (
     <Navbar />
     <SEO title="Home" />
     <div className="main-layout">
-      {/* <div style={{ maxWidth: `800px`, marginBottom: `1.45rem` }}>
-        <Image />
-      </div> */}
       <Hero />
       <AboutMe />
       <Talks />

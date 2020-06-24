@@ -4,6 +4,7 @@ const useTalks = () => {
     query {
       allMdx(sort: { fields: fileAbsolutePath, order: DESC }) {
         nodes {
+          id
           frontmatter {
             conference
             description
@@ -32,7 +33,8 @@ const useTalks = () => {
     description: talk.frontmatter.description,
     date: talk.frontmatter.date,
     url: talk.frontmatter.url,
-    slides: talk.frontmatter.url,
+    slides: talk.frontmatter.slides,
+    id: talk.id,
   }));
 };
 export default useTalks;
