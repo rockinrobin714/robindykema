@@ -7,7 +7,7 @@ const HeroBg = ({ children }) => {
     query {
       image: file(relativePath: { eq: "herobg.png" }) {
         sharp: childImageSharp {
-          fluid {
+          fluid(quality: 90, maxWidth: 1920) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }

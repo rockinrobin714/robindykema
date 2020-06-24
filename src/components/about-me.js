@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Img from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
+import { ResponsiveContext } from "../contexts/responsiveProvider";
 
 const AboutMe = () => {
+  const { isMobile } = useContext(ResponsiveContext);
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "sand.png" }) {
@@ -16,9 +18,11 @@ const AboutMe = () => {
   `);
   return (
     <section id="about-me" className="half-row">
-      <div>
-        <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-      </div>
+      {!isMobile && (
+        <div>
+          <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+        </div>
+      )}
       <div className="text-box">
         <p>
           Robin is a senior UI engineer at Taulia, where she focuses on front

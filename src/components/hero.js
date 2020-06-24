@@ -1,7 +1,6 @@
 import React from "react";
 import Img from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
 import HeroBg from "./herobg";
 
 const Hero = () => {
@@ -19,6 +18,10 @@ const Hero = () => {
   return (
     <section id="hero">
       <HeroBg>
+        <div className="hero-text">
+          <span className="title">Robin Dykema</span>
+          <span>UI Engineer and Conference Speaker</span>
+        </div>
         <div className="robin">
           <Img fluid={data.image.sharp.fluid} />
         </div>

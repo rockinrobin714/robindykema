@@ -18,10 +18,6 @@ $body-font: "Barlow Semi Condensed", sans-serif;
   font-family: $body-font;
 }
 
-a {
-  text-decoration: none;
-}
-
 li {
   list-style: none;
 }
@@ -34,16 +30,18 @@ h5 {
   font-family: $header-font;
 }
 
-button {
+button:not(.hamburger-button) {
   border-radius: 0;
-  height: 60px;
+  min-height: 60px;
   background-color: $yellow;
-  padding: 0 20px;
+  padding: 5px 20px;
   color: $gray;
   border: none;
   cursor: pointer;
   font-size: 20px;
-  margin-top: 20px;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
 
   &:hover {
     background-color: $gray;
@@ -60,7 +58,7 @@ a {
   padding: 30px;
   background-color: $yellow-light;
   color: $gray;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.5;
 
   > * + * {
@@ -103,6 +101,7 @@ nav {
       align-items: center;
       display: flex;
       color: $white;
+      text-decoration: none;
 
       &:hover {
         background-color: $yellow;
@@ -126,6 +125,23 @@ nav {
   right: 0;
 }
 
+.hero-text {
+  position: absolute;
+  width: 60vw;
+  top: 20vh;
+  left: 5vw;
+
+  span.title {
+    font-size: 92px;
+    display: block;
+  }
+
+  span {
+    font-size: 42px;
+    font-family: $header-font;
+  }
+}
+
 .half-row {
   display: flex;
 
@@ -143,34 +159,41 @@ nav {
   background-color: $white;
   padding: 30px;
   vertical-align: top;
+  font-size: 20px;
+
+  ul + h3 {
+    margin-top: 20px;
+  }
 }
 
 .talk {
   display: flex;
-
-  > * {
-    display: inline-block;
-    width: calc(50% - 15px);
-
-    + * {
-      margin-left: 30px;
-    }
-  }
+  margin-bottom: 20px;
+  font-family: 18px;
 
   a {
     text-decoration: underline;
     color: $yellow;
   }
+}
 
-  + .talk {
-    margin-top: 20px;
-  }
+.watch-video {
+  text-align: right;
+  color: $yellow;
+}
+
+.talk-image {
+  width: calc(30% - 15px);
+  margin: auto 0 auto 30px;
+  display: inline-block;
 }
 
 .talk-text {
+  width: calc(70% - 15px);
   padding: 30px;
   background-color: $dark;
   color: $light;
+  display: inline-block;
 
   .title {
     color: $yellow;
@@ -179,6 +202,8 @@ nav {
 
   .conference {
     color: $yellow;
+    font-size: 20px;
+    display: block;
   }
 
   * + * {
@@ -196,5 +221,153 @@ form {
     padding: 0.25rem;
     width: 100%;
     display: block;
+  }
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 900px) {
+  nav {
+    left: -1000px;
+    transition: 500ms ease;
+
+    &.open {
+      height: 100%;
+      display: flex;
+
+      ul {
+        transform: translateX(1000px);
+
+        li a {
+          justify-content: center;
+          border: 2px solid $yellow;
+        }
+      }
+    }
+
+    ul {
+      flex-direction: column;
+      height: calc(100% + 40px);
+      margin: -20px;
+      width: calc(100% + 40px);
+    }
+  }
+
+  .talk-text {
+    width: 100%;
+  }
+
+  .hero-bg {
+    height: calc(100vh - 60px);
+  }
+
+  .robin {
+    width: 45vw;
+  }
+
+  .hero-text {
+    width: 80vw;
+    top: 5vh;
+    text-align: center;
+    left: auto;
+    right: auto;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+
+    span.title {
+      font-size: 54px;
+      margin-bottom: 10px;
+
+      + span {
+        font-size: 36px;
+      }
+    }
+  }
+
+  .half-row > * {
+    width: 100%;
+  }
+}
+
+/* Hamburger button */
+.hamburger-container {
+  height: 60px;
+  width: 100%;
+  background-color: $yellow-light;
+  z-index: 10;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  z-index: 10;
+}
+button.hamburger-button {
+  top: 20px;
+  left: 20px;
+  width: 45px;
+  height: 35px;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  border: none;
+  background-color: transparent;
+
+  span {
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    background-color: $gray;
+    border-radius: px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+
+    &:nth-child(1) {
+      top: 0px;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: 14px;
+    }
+
+    &:nth-child(4) {
+      top: 28px;
+    }
+  }
+
+  &:active:enabled,
+  &:hover:enabled,
+  &:focus:enabled {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &:focus {
+    outline: thin dotted;
+  }
+
+  &.open {
+    span:nth-child(1) {
+      top: 14px;
+      width: 0%;
+      left: 50%;
+    }
+
+    span:nth-child(2) {
+      transform: rotate(45deg);
+    }
+
+    span:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+
+    span:nth-child(4) {
+      top: 14px;
+      width: 0%;
+      left: 50%;
+    }
   }
 }

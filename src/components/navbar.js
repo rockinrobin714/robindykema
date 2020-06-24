@@ -1,28 +1,44 @@
-import React from "react";
-import { Link } from "gatsby";
+import React, { useContext, useState } from "react";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
+import { ResponsiveContext } from "../contexts/responsiveProvider";
+import HamburgerButton from "./hamburger-button";
 
 const Navbar = () => {
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const { isMobile } = useContext(ResponsiveContext);
+
   return (
-    <nav>
-      <ul>
-        <li>
-          <h4>Robin Dykema</h4>
-        </li>
-        <li>
-          <AnchorLink to="/#hero">Home</AnchorLink>
-        </li>
-        <li>
-          <AnchorLink to="/#about-me">About Me</AnchorLink>
-        </li>
-        <li>
-          <AnchorLink to="/#talks">Talks</AnchorLink>
-        </li>
-        <li>
-          <AnchorLink to="/#contact">Contact</AnchorLink>
-        </li>
-      </ul>
-    </nav>
+    <>
+      {isMobile && (
+        <div className="hamburger-container">
+          <HamburgerButton
+            open={isMobileNavOpen}
+            onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
+          />
+        </div>
+      )}
+      <nav className={isMobileNavOpen && "open"}>
+        <ul>
+          {!isMobile && (
+            <li>
+              <h4>Robin Dykema</h4>
+            </li>
+          )}
+          <li role="button" onClick={() => setIsMobileNavOpen(false)}>
+            <AnchorLink to="/#hero">Home</AnchorLink>
+          </li>
+          <li role="button" onClick={() => setIsMobileNavOpen(false)}>
+            <AnchorLink to="/#about-me">About Me</AnchorLink>
+          </li>
+          <li role="button" onClick={() => setIsMobileNavOpen(false)}>
+            <AnchorLink to="/#talks">Talks</AnchorLink>
+          </li>
+          <li role="button" onClick={() => setIsMobileNavOpen(false)}>
+            <AnchorLink to="/#contact">Contact</AnchorLink>
+          </li>
+        </ul>
+      </nav>
+    </>
   );
 };
 

@@ -1,21 +1,19 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer, useContext } from "react";
 import Img from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
+import { ResponsiveContext } from "../contexts/responsiveProvider";
 
 const INITIAL_STATE = {
   name: "",
   email: "",
   subject: "",
   body: "",
-  status: "IDLE",
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "updateFieldValue":
       return { ...state, [action.field]: action.value };
-    case "updateStatus":
-      return { ...state, status: action.status };
     case "reset":
     default:
       return INITIAL_STATE;
@@ -23,6 +21,8 @@ const reducer = (state, action) => {
 };
 
 const AboutMe = () => {
+  const { isMobile } = useContext(ResponsiveContext);
+
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "beach.png" }) {
@@ -36,7 +36,6 @@ const AboutMe = () => {
   `);
 
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
-  const setStatus = status => dispatch({ type: "updateStatus", status });
   const updateFieldValue = field => event => {
     dispatch({
       type: "updateFieldValue",
@@ -46,7 +45,6 @@ const AboutMe = () => {
   };
   const handleSubmit = event => {
     event.preventDefault();
-    setStatus("PENDING");
     fetch("/api/contact", {
       method: "POST",
       body: JSON.stringify(state),
@@ -54,20 +52,15 @@ const AboutMe = () => {
       .then(response => response.json())
       .then(response => {
         console.log(response);
-        setStatus("SUCCESS");
       })
       .catch(error => {
         console.error(error);
-        setStatus("ERROR");
       });
   };
 
   return (
     <section id="contact" className="half-row">
       <div className="text-box">
-        {state.status === "ERROR" && (
-          <p>Something went wrong. Please try again</p>
-        )}
         <form onSubmit={handleSubmit}>
           <label>
             Name
@@ -107,9 +100,11 @@ const AboutMe = () => {
           <button>Send</button>
         </form>
       </div>
-      <div>
-        <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-      </div>
+      {!isMobile && (
+        <div>
+          <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+        </div>
+      )}
     </section>
   );
 };

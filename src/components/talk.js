@@ -1,27 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
 import Image from "gatsby-image";
+import { ResponsiveContext } from "../contexts/responsiveProvider";
 
 const Talk = ({ talk }) => {
+  const { isMobile } = useContext(ResponsiveContext);
+
   return (
     <section className="talk">
       <div className="talk-text">
         <h3 className="title">{talk.title}</h3>
         <p>
-          <span className="conference">{talk.conference}</span> -{" "}
+          <span className="conference">{talk.conference}</span>
           {talk.location} ({talk.date})
         </p>
         <p>{talk.description}</p>
         <p>
-          Check out the slides{" "}
           <a href={talk.slides} rel="noopener" target="_blank">
-            here {talk.slides}
+            Link to slides
           </a>
         </p>
         {talk.url && <p className="watch-video">{talk.url}</p>}
       </div>
-      <div className="talk-image">
-        <Image fluid={talk.image.sharp.fluid} alt={talk.title} />
-      </div>
+      {!isMobile && (
+        <a
+          href={talk.slides}
+          rel="noopener"
+          target="_blank"
+          className="talk-image"
+        >
+          <Image fluid={talk.image.sharp.fluid} alt={talk.title} />
+        </a>
+      )}
     </section>
   );
 };
