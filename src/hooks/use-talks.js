@@ -15,7 +15,7 @@ const useTalks = () => {
             slides
             image {
               sharp: childImageSharp {
-                fluid(quality: 90, maxWidth: 800) {
+                fluid(quality: 90, maxWidth: 600) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
