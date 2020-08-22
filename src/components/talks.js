@@ -61,16 +61,6 @@ const Talks = () => {
           <li>
             A Proxy-mately Everything You Need to Know About Proxies -{" "}
             <a
-              href="https://decoupleddays.com/"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              Decoupled Days
-            </a>
-          </li>
-          <li>
-            A Proxy-mately Everything You Need to Know About Proxies -{" "}
-            <a
               href="https://enterjs.de/"
               target="_blank"
               rel="noreferrer noopener"
